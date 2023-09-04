@@ -38,7 +38,7 @@ const createSensorCardInfo = sensor => {
         : `Status : <span class="off">inactif</span>`
     
     
-    const $sensorInfoBtn = document.createElement('anchor')
+    const $sensorInfoBtn = document.createElement('a')
     $sensorInfoBtn.classList.add('sensor-info-btn')
     $sensorInfoBtn.setAttribute('href', `/pages/sensor-details.html?facadeId=${sensor.id}`)
     $sensorInfoBtn.textContent = 'Voir les détails'
