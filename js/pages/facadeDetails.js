@@ -46,7 +46,13 @@ const fillSensorTable = sensorData => {
 const fillWeatherForecastTable = weatherForecastData => {
     $weatherLocation.textContent = weatherForecastData.location.name
     $weatherTemperature.textContent = `${weatherForecastData.current.temperature} °C`
-    
+    $weatherIcon.setAttribute('src', weatherForecastData.current.weather_icons[0])
+    $weatherIcon.setAttribute('alt', weatherForecastData.current.weather_descriptions[0])
+    $weatherDescription.textContent = weatherForecastData.current.weather_descriptions[0]
+    $weatherWind.textContent = `${weatherForecastData.current.wind_speed} km/h`
+    $weatherCloudcover.textContent = `${weatherForecastData.current.cloudcover} %`
+    $weatherUVIndex.textContent = weatherForecastData.current.uv_index
+    $weatherIsDay.textContent = weatherForecastData.current.is_day ? "Oui" : "Non"
 }
 
 
@@ -69,7 +75,7 @@ const handleSensorImagesGallery = sensorData => {
 const main = async () => {
     const sensorData = await retrieveSensorData()
 
-    const weatherForecastData = await retrieveWeatherForecastData(sensorData.coordinates, false)
+    const weatherForecastData = await retrieveWeatherForecastData(sensorData.coordinates, true)
 
     fillSensorTable(sensorData)
     handleSensorImagesGallery(sensorData)
