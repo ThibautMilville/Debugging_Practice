@@ -1,4 +1,4 @@
-const ACCESS_KEY = ''
+const ACCESS_KEY = 'f71ba1ecf0a2fe236a840990b40069a4'
 
 const _retrieveWeatherForecastMockedData = () => fetch('/data/weather-api-mocked-data.json')
 .then(res => res.json())
