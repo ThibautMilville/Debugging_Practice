@@ -20,11 +20,13 @@ const isFormValid = () => checkSensorId() && checkSensorStatus() && checkSensorB
 
 
 const handleGeolocation = () => {
-    if ("geolocatio" in navigator) {
+    if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(position => {
             $latInput.value = position.coords.latitude
             $lngInput.value = position.coords.longitude
         })
+    } else {
+        console.log("Geolocation not available")
     }
 }
 
